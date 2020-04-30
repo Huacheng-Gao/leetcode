@@ -1,0 +1,16 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+
+        def nextnum(n):
+            total_sum=0
+            while n>0:
+                
+                digit=n%10
+                n=n//10
+                total_sum+=digit**2
+            return total_sum
+        set1 =set()#设置一个空集合，避免重复
+        while n!= 1 and n not in set1:
+            set1.add(n)
+            n=nextnum(n)
+        return n==1
